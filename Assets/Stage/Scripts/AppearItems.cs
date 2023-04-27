@@ -9,9 +9,10 @@ public class AppearItems : MonoBehaviour
     public float span;
     GameObject[] bulletArray;
     public float itemLimit;
-    
-    
- 
+
+    public SoundManager soundManager; //サウンドマネージャー
+
+
     void Start()
     {
         bulletArray = GameObject.FindGameObjectsWithTag("Bullet");
@@ -40,8 +41,9 @@ public class AppearItems : MonoBehaviour
                 }
 
                 yield return new WaitForSeconds(span);
+                GameObject obj = 
                 Instantiate(bulletPrefab, navMeshHit.position, Quaternion.identity);
-
+                obj.GetComponent<ShellItem>().SetSoundManager(soundManager);
 
                 /*bulletArray = GameObject.FindGameObjectsWithTag("Bullet");
                 Debug.Log(bulletArray.Length);
