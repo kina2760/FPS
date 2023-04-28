@@ -27,20 +27,39 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private float playableDistance = 0.2f;
 
+
+
+
+
+
+
+
     private void Awake()
     {
-        //auidioSourceList配列の数だけAudioSourceを自分自身に生成して配列に格納
-        for (var i = 0; i < audioSourceList.Length; ++i)
-        {
-            audioSourceList[i] = gameObject.AddComponent<AudioSource>();
-        }
 
-        //soundDictionaryにセット
-        foreach (var soundData in soundDatas)
+            //auidioSourceList配列の数だけAudioSourceを自分自身に生成して配列に格納
+            for (var i = 0; i < audioSourceList.Length; ++i)
+            {
+            audioSourceList[i] = gameObject.AddComponent<AudioSource>();
+            }
+
+            //soundDictionaryにセット
+            foreach (var soundData in soundDatas)
+            {
+                soundDictionary.Add(soundData.name, soundData);
+            }
+
+    /*    //シングルトン
+        if (instance == null)
         {
-            soundDictionary.Add(soundData.name, soundData);
+            instance == this;
+            DontDestroyOnLoad(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        else
+        {
+            Destroy(gameObject);//二つ目以降出来上がった時に消す用
+        }
+*/
     }
 
     //未使用のAudioSourceの取得 全て使用中の場合はnullを返す
