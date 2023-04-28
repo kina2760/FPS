@@ -12,12 +12,12 @@ public class ShellItem : MonoBehaviour
     private int reward = 20;
 
     private SoundManager soundManager; //サウンドマネージャー
-                                       //
+    //受け取り用
     public void SetSoundManager(SoundManager sm)
     {
         this.soundManager = sm;
     }
-    //
+    
     void OnCollisionEnter(Collision other)
     {
         ss = GameObject.Find("Shooter").GetComponent<Shooter>();

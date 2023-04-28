@@ -17,7 +17,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private SoundData[] soundDatas;
 
-    //AudioSource（スピーカー）を同時に鳴らしたい音の数だけ用意
+    //AudioSource（スピーカー）を同時に鳴らしたい音の数だけ用意、とりあえず20個
     private AudioSource[] audioSourceList = new AudioSource[20];
 
     //別名(name)をキーとした管理用Dictionary
