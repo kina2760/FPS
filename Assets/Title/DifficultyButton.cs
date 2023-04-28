@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class DifficultyButton : MonoBehaviour
 {
 
+    [SerializeField]
+    private SoundManager soundManager; //サウンドマネージャー
+
     //Button button;
     public static int difficulty;
     //public GameManager gameManager;
@@ -37,6 +40,7 @@ public class DifficultyButton : MonoBehaviour
                 difficulty = 3;
                 break;
         }
+        soundManager.Play("難易度選択");
         Debug.Log(difficulty);
     }
     /*void SetDifficulty()
